@@ -3,7 +3,7 @@ pipeline {
     environment {
         VERSION = "${env.BUILD_ID}"
         AWS_ACCOUNT_ID="4532803019085"
-        AWS_DEFAULT_REGION=${AWS_DEFAULT_REGION}
+        AWS_DEFAULT_REGION="us-east-1"
         IMAGE_REPO_NAME="damilare-docker"
         IMAGE_TAG= "${env.BUILD_ID}"
         REPOSITORY_URI = "453280301908.dkr.ecr.us-east-1.amazonaws.com/damilare-docker"
@@ -21,7 +21,6 @@ pipeline {
             }
               steps {  
                 script{
-                    //docker login -u AWS -p $(aws ecr get-login-password --region REGION) aws_account_id.dkr.ecr.REGION.amazonaws.com
                     sh """aws ecr get-login-password --region ${AWS_DEFAULT_REGION} | docker login --username AWS --password-stdin ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com"""
                 }
               }
