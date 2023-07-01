@@ -10,7 +10,7 @@ pipeline {
     }
   stages {
       stage('Git checkout') { 
-          steaps { 
+          steps { 
               git branch: 'main', credentialsId: '', url: 'https://github.com/Chmod755DamilareLawal/sample-web-app.git'
               }
         }
