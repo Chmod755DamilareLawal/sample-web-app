@@ -6,22 +6,19 @@ pipeline {
         AWS_DEFAULT_REGION="us-east-1"
         IMAGE_REPO_NAME="damilare-docker"
         IMAGE_TAG= "${env.BUILD_ID}"
-        REPOSITORY_URI = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${IMAGE_REPO_NAME}"
+        REPOSITORY_URI = "453280301908.dkr.ecr.us-east-1.amazonaws.com/damilare-docker"
     }
   stages {
       stage('Git checkout') { 
           steaps { 
               git branch: 'main', credentialsId: '', url: 'https://github.com/Chmod755DamilareLawal/sample-web-app.git'
-    } 
-      }
-  
+              }
+        }
       stage('logging into AWS ECR') {
                   environment {
                       AWS_ACCESS_KEY_ID = credentials('aws_access_key_id')
                         AWS_SECRET_ACCESS_KEY = credentials('aws_secret_access_key')
-
-                      }
-             }
+            }
               steps {  
                 script{
                     
