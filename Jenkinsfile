@@ -3,7 +3,7 @@ pipeline {
     environment {
         VERSION = "${env.BUILD_ID}"
         AWS_ACCOUNT_ID="4532803019085"
-        AWS_DEFAULT_REGION="us-east-1"
+        AWS_DEFAULT_REGION="${AWS_DEFAULT_REGION}"
         IMAGE_REPO_NAME="damilare-docker"
         IMAGE_TAG= "${env.BUILD_ID}"
         REPOSITORY_URI = "453280301908.dkr.ecr.us-east-1.amazonaws.com/damilare-docker"
